@@ -10,7 +10,6 @@
     "dev": "node server.js"
   },
   "dependencies": {
-    "node-cache": "^5.1.2",
     "undici": "^6.0.0"
   }
 }
