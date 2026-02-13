@@ -15,7 +15,7 @@ const cache = new NodeCache();
 
 cache.set("ads", {
   permanent: {
-   imageSource: "https://i.ibb.co/J66PqCQ/x.jpg",
+   imageSource: "https://i.ibb.co/5XK16z99/x.jpg",
 captionText: `🔞 <b><u>PREMIUM MMS PACKS AVAILABLE!</u></b> 🔞\n
 🎬 <b>High-Quality Adult Content</b>\n💎 <i>Files & Videos Only — No Groups</i>\n\n
 📦 <b>PACKS & PRICING:</b>\n
@@ -25,9 +25,9 @@ captionText: `🔞 <b><u>PREMIUM MMS PACKS AVAILABLE!</u></b> 🔞\n
 👉 <b>C:P ONLY</b> — 229/- 🤫\n
 👉 <b>R:P ONLY</b> — 199/- 🫣\n\n
 🚀 <b>Instant Access | Premium Quality</b>\n
-📩 <b>Message Now:</b> <code>@Sellerxt1</code>`,
+📩 <b>Message Now:</b> @Sellerxt19`,
 actionLinks: [
-  { linkText: "📥 GET ACCESS NOW", linkDestination: "https://t.me/Sellerxt1" }
+  { linkText: "📥 GET ACCESS NOW", linkDestination: "https://t.me/Sellerxt19" }
 ]
 
   },
@@ -43,7 +43,7 @@ serve({
     const pass = url.searchParams.get("pass");
 
     if (method === "GET" && path === "/") {
-      if (pass !== "admin123") {
+      if (pass !== "ary@1082") {
         return new Response(`<form><input name='pass'><button>Login</button></form>`, {
           headers: { "Content-Type": "text/html" },
         });
@@ -63,7 +63,7 @@ serve({
 
       const form = (type: string, ad: any) => `
         <h3>${type.toUpperCase()} AD</h3>
-        <form method='POST' action='/update-ad?type=${type}&pass=admin123'>
+        <form method='POST' action='/update-ad?type=${type}&pass=ary@1082'>
           <input name='imageSource' placeholder='Image URL' value="${ad?.imageSource || ''}" style='width:100%'><br>
           <textarea name='captionText' placeholder='Caption' rows=6 style='width:100%'>${ad?.captionText || ''}</textarea><br>
           <textarea name='actionLinks' placeholder='[{\"linkText\":\"Text\", \"linkDestination\":\"URL\"}]' style='width:100%'>${JSON.stringify(ad?.actionLinks || [], null, 2)}</textarea><br>
@@ -82,7 +82,7 @@ serve({
         <p><b>Total Messages:</b> ${stats.total}</p>
         <p><b>Users:</b> ${stats.users.length}</p>
         <p><b>Bots:</b> ${stats.bots.length}</p>
-        <form method='POST' action='/send-to-channels?pass=admin123'>
+        <form method='POST' action='/send-to-channels?pass=ary@1082'>
           <button type='submit'>📢 Send Ads to All Channels</button>
         </form>
         <h2>📂 Channels / Groups / Users</h2>
@@ -92,7 +92,7 @@ serve({
       </body></html>`, { headers: { "Content-Type": "text/html" } });
     }
 
-    if (method === "POST" && path === "/send-to-channels" && pass === "admin123") {
+    if (method === "POST" && path === "/send-to-channels" && pass === "ary@1082") {
       const bots = Array.from(new Set((cache.get("bots") || []) as string[]));
       const chatLinks = cache.get("chat_links") || {};
       const ads = cache.get("ads") || {};
@@ -115,10 +115,10 @@ serve({
           }).catch(() => {});
         }
       }
-      return new Response(`<script>alert('✅ Sent to All');location.href='/?pass=admin123'</script>`, { headers: { "Content-Type": "text/html" } });
+      return new Response(`<script>alert('✅ Sent to All');location.href='/?pass=ary@1082'</script>`, { headers: { "Content-Type": "text/html" } });
     }
 
-    if (method === "POST" && path === "/update-ad" && pass === "admin123") {
+    if (method === "POST" && path === "/update-ad" && pass === "ary@1082") {
       const formData = await req.formData();
       const type = url.searchParams.get("type")!;
       const imageSource = formData.get("imageSource")?.toString();
@@ -132,9 +132,9 @@ serve({
           actionLinks: JSON.parse(actionLinksRaw || "[]")
         };
         cache.set("ads", ads);
-        return new Response(`<script>alert('✅ ${type.toUpperCase()} ad updated');location.href='/?pass=admin123'</script>`, { headers: { "Content-Type": "text/html" } });
+        return new Response(`<script>alert('✅ ${type.toUpperCase()} ad updated');location.href='/?pass=ary@1082'</script>`, { headers: { "Content-Type": "text/html" } });
       } catch {
-        return new Response(`<script>alert('❌ Invalid input');location.href='/?pass=admin123'</script>`, { headers: { "Content-Type": "text/html" } });
+        return new Response(`<script>alert('❌ Invalid input');location.href='/?pass=ary@1082'</script>`, { headers: { "Content-Type": "text/html" } });
       }
     }
 
